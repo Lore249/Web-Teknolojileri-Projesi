@@ -7,4 +7,17 @@ body {
   text-align: center;
 }
 
+/* Sayfa başlığı */
+h1 {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Kart gölgelendirme */
+#futbol-takimlari .card {
+  transition: transform 0.2s ease;
+}
+#futbol-takimlari .card:hover {
+  transform: scale(1.05);
+}
 
