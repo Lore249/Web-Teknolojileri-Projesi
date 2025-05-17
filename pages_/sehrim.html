@@ -3,99 +3,111 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Şehrim - Sakarya</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <title>Sakarya - Şehrim</title>
+  <link rel="stylesheet" href="../css_/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
 </head>
 <body>
-
-  <!-- Navbar -->
+    <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Kerem Erol</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Şehrim</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Menüyü Aç/Kapat">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
-          <li class="nav-item"><a class="nav-link" href="hakkimda.html">Hakkımda</a></li>
-          <li class="nav-item"><a class="nav-link" href="cv.html">CV</a></li>
-          <li class="nav-item"><a class="nav-link active" href="#">Şehrim</a></li>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Anasayfa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Şehrim</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cv.html">Özgeçmiş</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ilgialani.html">İlgi Alanlarım</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="iletisim.html">İletişim</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
   <!-- Slider -->
-  <div id="sehirSlider" class="carousel slide mt-4 container" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <a href="#Yapı1">
-          <img src="img/Yapı1.jpg" class="d-block w-100" alt="Ayasofya" />
-        </a>
+  <div class="slider-wrapper">
+    <div id="sakaryaSlider" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <a href="#sapanca">
+            <img src="../img/sapanca.jpg" alt="Sapanca Gölü" />
+          </a>
+        </div>
+
+        <div class="carousel-item">
+          <a href="#acarlar">
+            <img src="../img/acarlar.jpg" alt="Acarlar Longozu" />
+          </a>
+        </div>
+
+        <div class="carousel-item">
+          <a href="#deprem">
+            <img src="../img/deprem.jpg" alt="Deprem Müzesi" />
+          </a>
+        </div>
+
+        <div class="carousel-item">
+          <a href="#harmantepekalesi">
+            <img src="../img/Harmantepe.jpg" alt="Harmantepe Kalesi" />
+          </a>
+        </div>
+
       </div>
-      <div class="carousel-item">
-        <a href="#Yapı2">
-          <img src="img/Yapı2.jpg" class="d-block w-100" alt="Galata Kulesi" />
-        </a>
-      </div>
-      <div class="carousel-item">
-        <a href="#Yapı3">
-          <img src="img/Yapı3.jpg" class="d-block w-100" alt="Kız Kulesi" />
-        </a>
-      </div>
-      <div class="carousel-item">
-        <a href="#Yapı4">
-          <img src="img/Yapı4.jpg" class="d-block w-100" alt="Topkapı Sarayı" />
-        </a>
-      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#sakaryaSlider" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#sakaryaSlider" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#sehirSlider" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#sehirSlider" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
   </div>
 
-  <!-- Şehir Bilgileri -->
-  <main class="container my-5">
-    <section>
-      <h2>Sakarya</h2>
-      <p><strong>Nüfus:</strong> 1.098.115 (2023)</p>
-      <p>
-        Sakarya'yla alakalı bir tanıtım cümlesi
-      </p>
-    </section>
+  <!-- İçerik -->
+  <div class="container">
+    <h1 class="text-center">Sakarya</h1>
+    <p>
+      Sakarya, Marmara Bölgesi'nde yer alan, doğal güzellikleri ve kültürel değerleriyle ön plana çıkan bir ildir.
+      2023 yılı itibarıyla nüfusu yaklaşık 1.100.000'dir. Hem sanayi hem de tarım alanında gelişmiş olan Sakarya,
+      aynı zamanda ulaşım ağları açısından da önemli bir noktadadır.
+    </p>
 
-    <!-- Gezilecek Yerler -->
-    <section id="yapı1" class="mt-5">
-      <h3>Yapı1</h3>
-      <p>yapıyla ilgil ibilgi</p>
-    </section>
+    <h2 id="sapanca">Sapanca Gölü</h2>
+    <p>
+      Doğal güzelliği ve sakin atmosferiyle bilinen Sapanca Gölü, piknik, yürüyüş ve bisiklet turları için ideal bir yerdir.
+    </p>
 
-    <section id="yapı2" class="mt-4">
-      <h3>Yapı2</h3>
-      <p>yapıyla ilgil ibilgi</p>
-    </section>
+    <h2 id="acarlar">Acarlar Longozu</h2>
+    <p>
+      Türkiye'nin nadir longoz ormanlarından biri olan Acarlar Longozu, biyolojik çeşitliliğiyle doğa tutkunlarının ilgisini çeker.
+    </p>
 
-    <section id="yapı3" class="mt-4">
-      <h3>Yapı3</h3>
-      <p>yapıyla ilgil ibilgi</p>
-    </section>
+    <h2 id="deprem">Deprem Müzesi</h2>
+    <p>
+      1999 Marmara Depremi'nin ardından kurulan bu müze, deprem bilincinin artırılması ve geçmişin unutulmaması adına önemli bir rol oynar.
+    </p>
 
-    <section id="yapı4" class="mt-4">
-      <h3>Yapı4</h3>
-      <p>yapıyla ilgil ibilgi</p>
-    </section>
-  </main>
+    <h2 id="harmantepekalesi">Harmantepe Kalesi</h2>
+    <p>
+      Harmantepe Kalesi, Sakarya ili, Söğütlü ilçesinde bulunan Bizans kalesidir. Söğütlü ilçesi, Harmantepe köyü yakınlarındadır.[4] 12 veya 13. yüzyılda Bizans İmparatorluğunun doğu sınırlarını savunmak amacıyla yapılmıştır.
+    </p>
+  </div>
 
-  <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-3">
-    © 2025 Kerem Erol | İstanbul
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

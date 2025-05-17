@@ -1,23 +1,54 @@
 body {
   background-color: #f8f9fa;
   font-family: 'Segoe UI', sans-serif;
-}
-
-.card-body {
-  text-align: center;
+  color: #212529;
 }
 
 /* Sayfa başlığı */
 h1 {
   font-weight: bold;
   color: #333;
+  margin-top: 20px;
 }
 
-/* Kart gölgelendirme */
-#futbol-takimlari .card {
-  transition: transform 0.2s ease;
-}
-#futbol-takimlari .card:hover {
-  transform: scale(1.05);
+/* Alt başlıklar */
+h2 {
+  color: #1e3d59;
+  margin-top: 30px;
 }
 
+/* Slider kapsayıcı */
+.slider-wrapper {
+  margin: 30px auto;
+  max-width: 900px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Slider öğeleri */
+.carousel-item {
+  background-color: #fdfdfd;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* <a> etiketi de ortalanmalı */
+.carousel-item a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Resim hizalaması */
+.carousel-item img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+}
