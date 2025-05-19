@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>İletişim</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css_/style.css">
+  <!-- Vue 3 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.4.21/dist/vue.global.prod.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Kerem Erol</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="hakkimda.html">Hakkımda</a></li>
+          <li class="nav-item"><a class="nav-link" href="cv.html">CV</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Anasayfa</a></li>
+          <li class="nav-item"><a class="nav-link" href="sehrim.html">Şehrim</a></li>
+          <li class="nav-item"><a class="nav-link" href="mirasımız.html">Mirasımız</a></li>
+          <li class="nav-item"><a class="nav-link" href="ilgialani.html">İlgi Alanlarım</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Giriş</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<div id="uygulama" class="container my-5">
+
+  <h1 class="text-center mb-4">İletişim Formu</h1>
+
+  <form id="iletisimFormu"
+        action="../php_/contact.php"
+        method="POST"
+        novalidate
+        onsubmit="return gonderOncesiKontrol();"> 
+
+    <!-- Ad Soyad -->
+    <div class="mb-3">
+      <label for="adSoyad" class="form-label">Ad Soyad</label>
+      <input type="text" id="adSoyad" name="ad_soyad" class="form-control">
+    </div>
+
+    <!-- E‑posta -->
+    <div class="mb-3">
+      <label for="eposta" class="form-label">E‑posta</label>
+      <input type="text" id="eposta" name="eposta" class="form-control">
+    </div>
+
+    <!-- Telefon -->
+    <div class="mb-3">
+      <label for="telefon" class="form-label">Telefon</label>
+      <input type="text" id="telefon" name="telefon" class="form-control" placeholder="5xxxxxxxxx">
+    </div>
+
+    <!-- Konu -->
+    <div class="mb-3">
+      <label for="konu" class="form-label">Konu</label>
+      <select id="konu" name="konu" class="form-select">
+        <option value="">Seçiniz</option>
+        <option>Öneri</option>
+        <option>Şikâyet</option>
+        <option>Diğer</option>
+      </select>
+    </div>
+
+    <!-- Mesaj -->
+    <div class="mb-3">
+      <label for="mesaj" class="form-label">Mesaj</label>
+      <textarea id="mesaj" name="mesaj" rows="4" class="form-control"></textarea>
+    </div>
+
+    <!-- Cinsiyet -->
+    <div class="mb-3">
+      <label class="form-label d-block">Cinsiyet</label>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" id="erkek" name="cinsiyet" value="Erkek">
+        <label class="form-check-label" for="erkek">Erkek</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" id="kadin" name="cinsiyet" value="Kadın">
+        <label class="form-check-label" for="kadin">Kadın</label>
+      </div>
+    </div>
+
+    <!-- İlgi Alanı -->
+    <div class="mb-3">
+      <label class="form-label d-block">İlgi Alanı</label>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="futbol"  name="ilgi_alani[]" value="Futbol">
+        <label class="form-check-label" for="futbol">Futbol</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="kitap" name="ilgi_alani[]" value="Tarih Kitapları">
+        <label class="form-check-label" for="kitap">Tarih Kitapları</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="oyun" name="ilgi_alani[]" value="Bilgisayar Oyunları">
+        <label class="form-check-label" for="oyun">Bilgisayar Oyunları</label>
+      </div>
+    </div>
+
+    <!-- İki farklı kontrol butonu -->
+    <div class="d-flex gap-2">
+      <button type="button" class="btn btn-warning flex-fill"
+              onclick="dogrulaJS()">JS ile Kontrol</button>
+
+      <button type="button" class="btn btn-info flex-fill"
+              @click="dogrulaVue">Vue.js ile Kontrol</button>
+    </div>
+
+    <!-- Temizle & Gönder -->
+    <div class="d-flex gap-2 mt-3">
+      <button type="reset"  class="btn btn-secondary flex-fill">Temizle</button>
+      <button type="submit" class="btn btn-success   flex-fill">Gönder</button>
+    </div>
+  </form>
+</div>
+
+<!-- Vanilla JS dosyası -->
+<script src="../js_/form_validation.js"></script>
+
+<script>
+/* ------------ Vue.js doğrulaması ------------ */
+const { createApp } = Vue;
+createApp({
+  methods:{
+    dogrulaVue(){
+      const f = document.getElementById('iletisimFormu');
+      const eposta = f.eposta.value.trim();
+      const telefon = f.telefon.value.trim();
+
+      if(!f.ad_soyad.value.trim() || !eposta || !telefon ||
+         !f.konu.value || !f.mesaj.value.trim()){
+        alert("Vue.js: Lütfen tüm alanları doldurun!");
+        return;
+      }
+      const mailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const telRe  = /^[0-9]{10,11}$/;
+
+      if(!mailRe.test(eposta)){
+        alert("Vue.js: Geçerli e‑posta giriniz!");
+        return;
+      }
+      if(!telRe.test(telefon)){
+        alert("Vue.js: Telefon 10‑11 haneli rakamlardan oluşmalı!");
+        return;
+      }
+      alert("Vue.js: Form geçerli görünüyor ✅");
+    }
+  }
+}).mount('#uygulama');
+</script>
+</body>
+</html>
+
